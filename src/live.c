@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+void scale(int* o_length, int* o_width, int* n_length, int* n_width, int factor);
+
 int main(void) {
     int original_length, original_width, new_length, new_width, factor;
 
@@ -8,7 +10,7 @@ int main(void) {
     factor = 2;
 
     /* Græsplæne skal udvides med `factor`. Der skal beregnes `new_length` og `new_width`. */
-
+    scale(original_length, original_width, &new_length, &new_width, factor);
 
 
     /* Udskriv gamle og nye dimensioner på skærmen. */
@@ -18,4 +20,9 @@ int main(void) {
     printf("New width %d\n", new_width);
 
     return 0;
+}
+
+void scale(int* o_length, int* o_width, int* n_length, int* n_width, int factor) {
+    *n_length = o_length * factor;
+    *n_width = o_width * factor;
 }

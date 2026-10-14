@@ -1,37 +1,32 @@
 #include <stdio.h>
 
-void scale(int o_length, int o_width, int* n_length, int* n_width, int factor);
+void scale(int* length, int* width, int factor);
 void get_input(int* length, int* width, int* factor);
 
-
 int main(void) {
-    int original_length, original_width, new_length, new_width, factor;
+    int length, width, factor;
 
-    original_length = 5;
-    original_width = 3;
-    factor = 2;
+    get_input(&length, &width, &factor);
 
-    /* Græsplæne skal udvides med `factor`. Der skal beregnes `new_length` og `new_width`. */
-    scale(original_length, original_width, &new_length, &new_width, factor);
-
-    get_input(&original_length, &original_width, &factor);
+    scale(&length, &width, factor);
 
 
     /* Udskriv gamle og nye dimensioner på skærmen. */
-    printf("Original length %d\n", original_length);
-    printf("Original width %d\n", original_width);
-    printf("New length %d\n", new_length);
-    printf("New width %d\n", new_width);
+    //printf("Original length %d\n", original_length);
+    //printf("Original width %d\n", original_width);
+    printf("New length %d\n", length);
+    printf("New width %d\n", width);
 
     return 0;
 }
 
-void scale(int o_length, int o_width, int* n_length, int* n_width, int factor) {
-    *n_length = o_length * factor;
-    *n_width = o_width * factor;
-}
 
 void get_input(int* length, int* width, int* factor) {
     printf("Indtast laengde, bredde og faktor\n");
     scanf("%d %d %d", length, width, factor);
+}
+
+void scale(int* length, int* width, int factor){
+    *length = *length * factor;
+    *width = *width * factor;
 }
